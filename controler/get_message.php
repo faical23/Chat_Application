@@ -20,7 +20,7 @@ foreach($result as $value){
         $ZoneMessage .='  
                     <div class="message_recu">
                         <p>'. $value["message"].'</p>
-                        <h6>10:45 </h6>
+                        <h6>'. $value["date"].'</h6>
                     </div>  
                 ';
                 $x++;

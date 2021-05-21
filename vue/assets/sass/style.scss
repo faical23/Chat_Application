@@ -493,6 +493,15 @@
                         overflow-y: scroll;
                     }
                     
+                    @media only screen and (max-width: 1920px) {
+                        #message_height_on {
+                            height: 48.3% !important;
+                        }
+                        #message_height_off {
+                            height: 70.7% !important;
+                        }
+                    }
+                    
                     @media only screen and (max-width: 1440px) {
                         .Chat {
                             .message {
