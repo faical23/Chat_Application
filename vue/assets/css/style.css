@@ -1,0 +1,562 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  position: relative;
+  top: 20px;
+  border-radius: 30px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 30px;
+  background: #adadad;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #eaeef2;
+  border-radius: 30px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+body {
+  background-color: #ffbce0;
+}
+
+.myChat {
+  width: 70%;
+  height: 800px;
+  margin: auto;
+  margin-top: 70px;
+  border-radius: 30px;
+  display: flex;
+}
+
+.myChat input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  background-color: #eaeef2;
+  border-radius: 30px;
+  padding: 20px;
+  outline: none;
+}
+
+.myChat input:focus {
+  border: 2px solid #7d7cda;
+}
+
+.chat_users,
+.user_enline,
+.setting {
+  display: none !important;
+}
+
+.SideBare {
+  background-color: #6e6dd6;
+  width: 40%;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+}
+
+.SideBare .profile {
+  height: 87%;
+  padding: 20px 25px;
+}
+
+.SideBare .profile .user_img {
+  text-align: center;
+}
+
+.SideBare .profile .user_img h1 {
+  font-size: 40px;
+  color: white;
+  padding-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: bold !important;
+}
+
+.SideBare .profile .user_img img {
+  border-radius: 50%;
+  width: 80%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.SideBare .profile .nickname,
+.SideBare .profile .user_status {
+  background-color: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin: 20px 0px;
+}
+
+.SideBare .profile .nickname h6,
+.SideBare .profile .user_status h6 {
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+
+.SideBare .profile .nickname h2,
+.SideBare .profile .user_status h2 {
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.SideBare .profile .nickname select,
+.SideBare .profile .user_status select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.SideBare .chat_users {
+  height: 87%;
+}
+
+.SideBare .chat_users .name_message {
+  font-size: 40px;
+  padding-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: bold !important;
+  text-align: center;
+  color: white;
+  padding: 20px 25px;
+  padding-bottom: 54px;
+}
+
+.SideBare .chat_users .all_message {
+  height: 550px;
+  padding: 20px 0px;
+  overflow-y: scroll;
+}
+
+.SideBare .chat_users .all_message .user_message {
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  border-top: 1px solid #6e6dd6;
+  border-bottom: 1px solid #6e6dd6;
+  background-color: #eaeef2;
+  color: black;
+  transition: ease-out 0.6s;
+  width: 97%;
+  margin: auto;
+  border-radius: 20px;
+  margin-bottom: 5px;
+}
+
+.SideBare .chat_users .all_message .user_message:hover {
+  background-color: #afd7ff !important;
+}
+
+.SideBare .chat_users .all_message .user_message .img_user {
+  width: 20%;
+}
+
+.SideBare .chat_users .all_message .user_message .img_user img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.SideBare .chat_users .all_message .user_message .name_user {
+  position: relative;
+  top: 12px;
+}
+
+.SideBare .chat_users .all_message .user_message .name_user h5 {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.SideBare .chat_users .all_message .user_message .name_user p {
+  font-size: 14px;
+}
+
+.SideBare .chat_users .all_message .user_message .status_users {
+  color: red;
+}
+
+.SideBare .chat_users .all_message .user_message .status_users .fa {
+  font-size: 16px !important;
+}
+
+.SideBare .user_enline {
+  text-align: center;
+  height: 87%;
+  padding: 20px 25px;
+}
+
+.SideBare .user_enline .zone_search {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.SideBare .user_enline .zone_search input {
+  font-size: 12px;
+  padding: 0px 21px;
+  height: 45px;
+  width: 97% !important;
+  text-align: start !important;
+}
+
+.SideBare .user_enline .name_message {
+  font-size: 40px;
+  padding-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: bold !important;
+  text-align: center;
+  color: white;
+  padding-bottom: 54px;
+}
+
+.SideBare .user_enline .all_friends {
+  background-color: red !important;
+  background-color: white !important;
+  padding: 20px;
+  height: 480px;
+  overflow-y: scroll;
+  border-radius: 10px;
+}
+
+.SideBare .user_enline .all_friends .user_message {
+  padding: 10px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  background-color: #eaeef2;
+  color: black;
+  transition: ease-out 0.6s;
+  width: 97%;
+  margin: auto;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.SideBare .user_enline .all_friends .user_message:hover {
+  background-color: #afd7ff !important;
+}
+
+.SideBare .user_enline .all_friends .user_message img {
+  width: 14%;
+  border-radius: 50%;
+}
+
+.SideBare .user_enline .all_friends .user_message h5 {
+  font-weight: bold;
+  position: relative;
+  top: 5px;
+  font-size: 0.4em;
+}
+
+.SideBare .user_enline .all_friends .user_message .fa {
+  font-size: 16px !important;
+  color: green;
+}
+
+.SideBare .setting {
+  height: 87%;
+  padding: 20px 25px;
+}
+
+.SideBare .setting .update_btn,
+.SideBare .setting .logout_btn {
+  text-align: end;
+  padding: 10px 0px !important;
+}
+
+.SideBare .setting .update_btn .btn,
+.SideBare .setting .logout_btn .btn {
+  background-color: white !important;
+  transition: ease-out 0.6s;
+}
+
+.SideBare .setting .update_btn .btn:hover,
+.SideBare .setting .logout_btn .btn:hover {
+  background-color: #6e6dd6 !important;
+  color: white;
+  border: 1px solid white;
+}
+
+.SideBare .setting .logout_btn {
+  position: relative;
+  top: 30px;
+}
+
+.SideBare .setting .logout_btn .btn {
+  font-size: 0.5em !important;
+  font-weight: bold !important;
+  width: 100%;
+  height: 60px;
+}
+
+.SideBare .setting .logout_btn svg {
+  position: relative;
+  bottom: 3px;
+  transition: ease-out 0.6s;
+}
+
+.SideBare .setting .logout_btn .btn:hover svg {
+  fill: white;
+}
+
+.SideBare .setting .btn_add_image {
+  text-align: -webkit-right;
+}
+
+.SideBare .setting .btn_add_image .update_pic {
+  display: block;
+  border: navajowhite;
+  padding: 1px 5px;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 25px;
+  transition: ease-out 0.6s;
+}
+
+.SideBare .setting .btn_add_image .update_pic:hover {
+  background-color: #6e6dd6 !important;
+  color: white;
+  border: 1px solid white;
+}
+
+.SideBare .setting .name_message {
+  font-size: 40px;
+  padding-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: bold !important;
+  text-align: center;
+  color: white;
+  padding: 20px 25px;
+  padding-bottom: 54px;
+}
+
+.SideBare .setting .user_img {
+  text-align: center;
+}
+
+.SideBare .setting .user_img img {
+  border-radius: 50%;
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.SideBare .setting .nickname {
+  background-color: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin: 20px 0px;
+}
+
+.SideBare .setting .nickname h6 {
+  padding-bottom: 4px;
+  font-size: 12px;
+}
+
+.SideBare .setting .nickname input {
+  border: none;
+  background: none;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+  padding: 0px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.SideBare .setting .nickname input:focus {
+  font-size: 0.7em;
+}
+
+.SideBare .setting .nickname ::placeholder {
+  color: black;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.user_options {
+  padding: 32px 25px;
+  background-color: #7d7cda;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-left-radius: 30px;
+  cursor: pointer;
+}
+
+.user_options svg {
+  fill: white;
+  width: 40px;
+  height: 40px;
+}
+
+.user_options svg:hover {
+  fill: #fffb24;
+}
+
+.Chat {
+  background-color: #eaeef2;
+  width: 100%;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.Chat .connect_with {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  border-top-right-radius: 30px;
+}
+
+.Chat .connect_with img {
+  border-radius: 50%;
+  width: 10%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.Chat .connect_with h1 {
+  font-size: 2.5rem;
+  position: relative;
+  left: 30px;
+  font-weight: bold;
+}
+
+.Chat .message {
+  padding: 20px 30px;
+  height: 70.7%;
+  overflow-y: scroll;
+}
+
+.Chat .message .message_recu,
+.Chat .message .message_sent {
+  display: flex;
+  margin: 20px 0px;
+  width: 50%;
+  align-items: flex-end;
+}
+
+.Chat .message .message_sent {
+  margin-left: auto;
+}
+
+.Chat .message .message_sent p {
+  border-bottom-right-radius: 0px;
+  background-color: #6e6dd6;
+}
+
+.Chat .message .message_sent .message_sent_centent {
+  width: 100%;
+}
+
+.Chat .message .message_sent .message_sent_time {
+  position: relative;
+  left: 20px;
+  text-align: center;
+}
+
+.Chat .message .message_sent .message_sent_time svg {
+  padding: 10px;
+  border-radius: 50%;
+  fill: #6e6dd6;
+  background: white;
+  width: 45px;
+  height: 45px;
+}
+
+.Chat .message .message_recu p {
+  border-bottom-left-radius: 0px;
+  background-color: white;
+  color: black;
+}
+
+.Chat .message .message_recu h6 {
+  position: relative;
+  left: 20px;
+}
+
+.Chat .message p {
+  width: auto;
+  border-radius: 30px;
+  color: white;
+  padding: 15px 26px;
+  font-size: 20px;
+}
+
+.Chat .write_message {
+  background-color: white;
+  padding: 27px 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.Chat .write_message svg {
+  cursor: pointer;
+  fill: black;
+}
+
+.Chat .write_message svg:hover {
+  fill: #6e6dd6;
+}
+
+.Chat .write_message button {
+  border: none;
+  background: none;
+}
+
+.name_not_found {
+  font-size: 20px;
+}
+
+.not_message_her {
+  color: black !important;
+  text-align: center;
+  position: relative;
+  transition: -50%, 50%;
+  transform: translate(0%, 261%);
+  font-size: 28px !important;
+}
+
+.user_message_recu {
+  font-weight: bold;
+  font-size: 18px !important;
+}
+
+.emojo {
+  display: none;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}

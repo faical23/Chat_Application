@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.myChat {
+    width: 70%;
+    height: 800px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 30px;
+    display: flex;
+}
+
+.SideBare {
+    background-color: #6e6dd6;
+    width: 30%;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.Chat {
+    background-color: #eaeef2;
+    width: 100%;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.chat_users,
+.user_enline,
+.setting {
+    display: none;
+}
