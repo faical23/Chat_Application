@@ -456,6 +456,7 @@ body {
   padding: 20px 30px;
   height: 70.7%;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .Chat .message .message_recu,
@@ -554,10 +555,12 @@ body {
 .emojo {
   display: none;
   margin: auto;
-  padding: 20px;
+  padding: 27px;
   background-color: white;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  height: 180px;
+  overflow-y: scroll;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -567,6 +570,12 @@ body {
   .SideBare {
     width: 45%;
   }
+  #message_height_on {
+    height: 51.7% !important;
+  }
+  #message_height_off {
+    height: 74.7% !important;
+  }
 }
 
 @media only screen and (max-width: 1280px) {
@@ -575,7 +584,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1024px) {
   .myChat {
     width: 85%;
   }
@@ -591,6 +600,9 @@ body {
   .user_options svg {
     width: 35px;
     height: 35px;
+  }
+  #message_height_on {
+    height: 52.7% !important;
   }
 }
 
@@ -610,6 +622,9 @@ body {
   .user_options svg {
     width: 35px;
     height: 35px;
+  }
+  #message_height_on {
+    height: 52.7% !important;
   }
 }
 

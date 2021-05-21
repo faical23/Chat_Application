@@ -808,12 +808,14 @@ let emoji_work = true;
 $('.icon_emoji').click(function(){
 	$('.emojo').toggle();
 	if(emoji_work){
-		$('.message').css("height","43.3%");
+		let message = document.querySelector('.message')
+		message.id='message_height_on'
 		emoji_work = false
 	}
 	else{
 
-		$('.message').css("height","70.7%");
+		let message = document.querySelector('.message')
+		message.id='message_height_off'
 		emoji_work = true
 	}
   });
