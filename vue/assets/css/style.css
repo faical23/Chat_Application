@@ -16,12 +16,11 @@
 /* Track */
 ::-webkit-scrollbar-track {
   border-radius: 30px;
-  background: #adadad;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #eaeef2;
+  background: #262470;
   border-radius: 30px;
 }
 
@@ -559,4 +558,66 @@ body {
   background-color: white;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .Chat .message {
+    height: 74.7%;
+  }
+  .SideBare {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .SideBare {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .myChat {
+    width: 85%;
+  }
+  .SideBare {
+    width: 60%;
+  }
+  .SideBare .profile {
+    height: 87.6%;
+  }
+  .SideBare .profile input {
+    width: 100%;
+  }
+  .user_options svg {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .myChat {
+    width: 95%;
+  }
+  .SideBare {
+    width: 60%;
+  }
+  .SideBare .profile {
+    height: 87.6%;
+  }
+  .SideBare .profile input {
+    width: 100%;
+  }
+  .user_options svg {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.SideBare .setting .logout_btn .btn {
+  height: 60px;
+  padding: 14px !important;
+}
+
+.SideBare .setting .nickname input {
+  font-size: .6em;
 }
