@@ -6,12 +6,12 @@ include "../model/db.php";
 
 if(isset($_POST["submit"])){
 
-    $name = $_POST["Name"];
-    $email = $_POST["Email"];
-    $password = $_POST["Password"];
+    $name =  filter_var(  $_POST["Name"] , FILTER_SANITIZE_STRING);
+    $email = filter_var(  $_POST["Email"] , FILTER_SANITIZE_STRING);
+    $password = filter_var( $_POST["Password"] , FILTER_SANITIZE_STRING);
     $img = $_POST["img"];
     $status = 0;
-    $userImg = "../assets/image/" . $img;
+    $userImg = $img;
 
     $user_data=["name" => $name , "email" => $email , "password" => $password , "status" => $status , "user_pic" => $userImg];
 

@@ -2,8 +2,9 @@
     session_start();
     include "../model/db.php";
 
-    if(!empty($_SESSION["user_login"])){
-        $id = $_GET["id"];
+	
+    if(!empty($_SESSION["user_login"]) ){
+        $id = $_SESSION['id'];
         
         $user_enline = new CRUD("users");
         $result = $user_enline->select("",["id" => $id]);
@@ -16,6 +17,8 @@
     else{
         header('Location:../vue/index.php');
     }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -66,111 +69,7 @@
         <div class="chat_users">
             <h1 class="name_message">Discussions<h1>
 			<div class="all_message">
-			<?php
-					$arr =[];
-					$all_message = "";
-					$user_enline = new CRUD("chat");
-					$result = $user_enline->select_msg_u_send();
-					foreach($result as $value){
-						$was_connect_with = $value["id_message_going"];
-						if(!($was_connect_with == $UserId)){
-							array_push($arr,$was_connect_with);
-						}
-					}
-					$result = $user_enline->select_msg_u_recu();
-					foreach($result as $value){
-						$was_connect_with = $value["id_message_comming"];
-						if(!(in_array($was_connect_with,$arr))){
-							array_push($arr,$was_connect_with);
-						}
-					}
-					$arr_reverse = array_reverse($arr, false);
-
-					for($i = 0 ; $i <count($arr_reverse) ; $i++){
-						//// select name and pic
-						 $user_enline = new CRUD("users");
-						$result = $user_enline->select("", ["id" => $arr_reverse[$i]]);
-						foreach($result as $value){
-							$pic_connect_with = $value["user_pic"];
-							$name_connect_with = $value["name"];
-							$status_connect_with = $value['status'];
-						}
-						/////////// select last msg
-						 $result = $user_enline->select_last_Discussions($UserId ,$arr_reverse[$i]);
-						foreach($result as $value){
-							$last_message = $value["message"];
-							if($arr_reverse[$i]== $value["id_message_comming"]){
-			?>
-								<div class="user_message" onclick="select(<?php echo $arr_reverse[$i]?>); select_message(<?php echo $UserId?>,<?php echo $arr_reverse[$i]?>); read_message(<?php echo $UserId?>,<?php echo $arr_reverse[$i]?>)">
-										<div class="img_user">
-											<img src="<?php echo  $pic_connect_with?>">
-										</div>
-										<div class="name_user">
-											<h5><?php echo $name_connect_with?></h5>
-			<?php
-						if($value['read_msg'] == 0){
-			?>
-											<p class='user_message_recu' id='<?php echo "message" . $arr_reverse[$i]?>'><?php echo  $last_message . " ... "?></p>
-			<?php
-						}
-						else{
-			?>
-											<p  id='<?php echo $arr_reverse[$i]?>'><?php echo $last_message . " ... "?></p>
-
-			<?php
-						}
-			?>
-										</div>
-										<div class="status_users">
-			<?php
-						if($status_connect_with == 1){
-			?>
-											<i class="fa fa-circle" style='color:green'></i>
-			<?php
-						}
-						else{
-			?>
-											<i class="fa fa-circle" style='color:red'></i>
-
-			<?php
-						}
-			?>
-										</div>
-								</div>
-			<?php
-							}
-							else{
-			?>
-								<div class="user_message" onclick="select(<?php echo $arr_reverse[$i]?>); select_message(<?php echo $UserId?>,<?php echo $arr_reverse[$i]?>)">
-										<div class="img_user">
-											<img src="<?php echo  $pic_connect_with?>">
-										</div>
-										<div class="name_user">
-											<h5><?php echo $name_connect_with?></h5>
-											<p ><?php echo  "You : " . $last_message . " ... "?></p>
-										</div>
-										<div class="status_users">
-										<?php
-						if($status_connect_with == 1){
-			?>
-											<i class="fa fa-circle" style='color:green'></i>
-			<?php
-						}
-						else{
-			?>
-											<i class="fa fa-circle" style='color:red'></i>
-
-			<?php
-						}
-			?>							</div>
-								</div>
-			<?php
-							}
-						}
-					}
-					
-
-			?>
+		
 			</div>
         </div>
         <div class="user_enline">
@@ -344,7 +243,7 @@
 
             </div>
 
-            <div class="icon_user"  onclick="switch_side('chat_users')">
+            <div class="icon_user"  onclick="switch_side('chat_users'); get_all_disscussions();">
     
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="50px"  width="50px" 
 	 viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
@@ -634,7 +533,6 @@
 
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="assets/js/main.js"></script>
@@ -791,6 +689,15 @@ update.addEventListener('click' , () =>{
 	
 })
 
+///// get all disscussion if click in disscussions
+const get_all_disscussions = () =>{
+	
+		$.get("../controler/conncet_with_and_last_msg.php?user=<?php echo $UserId?>", function(data, status){
+		let all_message = document.querySelector('.all_message');
+		all_message.innerHTML = data;
+  });
+}
+
 let emoji = document.querySelectorAll('.emoji_icon')
 
 emoji.forEach(Element =>{
@@ -818,7 +725,8 @@ $('.icon_emoji').click(function(){
 		message.id='message_height_off'
 		emoji_work = true
 	}
-  });
+});
+
 </script>
 
 

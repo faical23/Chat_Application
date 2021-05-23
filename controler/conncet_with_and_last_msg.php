@@ -1,5 +1,6 @@
 <?php
 
+include '../model/db.php';
 $UserId = $_GET['user'];
 $arr =[];
 $all_message = "";
@@ -17,23 +18,33 @@ foreach($result as $value){
     if(!(in_array($was_connect_with,$arr))){
         array_push($arr,$was_connect_with);
     }
-
 }
-for($i = 0 ; $i <count($arr) ; $i++){
+$arr_reverse = array_reverse($arr, false);
+
+for($i = 0 ; $i <count($arr_reverse) ; $i++){
     //// select name and pic
      $user_enline = new CRUD("users");
-    $result = $user_enline->select("", ["id" => $arr[$i]]);
+    $result = $user_enline->select("", ["id" => $arr_reverse[$i]]);
     foreach($result as $value){
         $pic_connect_with = $value["user_pic"];
         $name_connect_with = $value["name"];
+        $status_connect_with = $value['status'];
+        if($value['status'] == 1){
+            $test = "green";
+        }
+        else{
+            $test="red";
+        }
     }
     /////////// select last msg
-     $result = $user_enline->select_last_Discussions($UserId ,$arr[$i]);
+     $result = $user_enline->select_last_Discussions($UserId ,$arr_reverse[$i]);
     foreach($result as $value){
+
+
         $last_message = $value["message"];
         if($arr[$i]== $value["id_message_comming"]){
             $all_message .= '
-                            <div class="user_message">
+                            <div class="user_message" onclick="select('.$arr_reverse[$i].'); select_message('.$UserId.','.$arr_reverse[$i].'); read_message('.$UserId.','.$arr_reverse[$i].')">
                                     <div class="img_user">
                                         <img src="'. $pic_connect_with.'">
                                     </div>
@@ -42,14 +53,13 @@ for($i = 0 ; $i <count($arr) ; $i++){
                                         <p> You :'.$last_message.'</p>
                                     </div>
                                     <div class="status_users">
-                                        <i class="fa fa-circle"></i>
+                                        <i class="fa fa-circle" style="color:'.$test.'"></i>
                                     </div>
                             </div>';
         }
         else{
             $all_message .= '
-                            <div class="user_message">
-                                    <div class="img_user">
+                            <div class="user_message" onclick="select('.$arr_reverse[$i].'); select_message('.$UserId.','.$arr_reverse[$i].'); read_message('.$UserId.','.$arr_reverse[$i].')">                                    <div class="img_user">
                                         <img src="'.$pic_connect_with.'">
                                     </div>
                                     <div class="name_user">
@@ -57,7 +67,7 @@ for($i = 0 ; $i <count($arr) ; $i++){
                                         <p> He :'.$last_message.'</p>
                                     </div>
                                     <div class="status_users">
-                                        <i class="fa fa-circle"></i>
+                                        <i class="fa fa-circle" style="color:'.$test.'"></i>
                                     </div>
                             </div>';
 

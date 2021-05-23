@@ -156,3 +156,13 @@ body {
         display: block;
     }
 }
+
+.btn_pic {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn_pic .btn {
+    background-color: #a29bfe;
+    color: white;
+}

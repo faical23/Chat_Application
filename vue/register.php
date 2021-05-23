@@ -25,7 +25,9 @@
 				<input type="password" placeholder="Password" name="Password" value="" required>
             </div>
 				<input type="file" placeholder="Confirm Password" name="img" value="" required style="margin :20px 0px" class="img_input">
-				<button class="btn">+</button>
+				<div  class="btn_pic">
+					<button class="btn">+</button>
+				</div>
 			<div class="input-group">
 				<button name="submit" class="btn">Register</button>
 			</div>
@@ -34,3 +36,4 @@
 	</div>
 </body>
 </html>
+
